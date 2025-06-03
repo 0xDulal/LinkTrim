@@ -7,7 +7,13 @@ const urlRoutes = require('./routes/urlRoutes');
 dotenv.config();
 
 const app = express();
-app.use(cors()); // Add this line
+const corsOptions = {
+  origin: ['https://link-trim-iota.vercel.app'], // your frontend URL
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions)); // Add this line
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
