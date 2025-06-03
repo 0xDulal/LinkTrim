@@ -11,7 +11,7 @@ const ShortenerCard = () => {
                   return;
             }
             // Make a POST request to the backend to shorten the URL
-            const data = await axios.post("http://localhost:5000/shorten", {
+            const data = await axios.post("http://link-trim-backend.vercel.app/shorten", {
                   originalUrl: url,
             });
             setShortUrl(data.data.shortUrl || ""); // Save the shortened URL to state
