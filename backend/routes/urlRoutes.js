@@ -4,5 +4,8 @@ const router = express.Router();
 
 router.post('/shorten', createShortUrl);
 router.get('/:shortId', redirectToOriginalUrl);
+router.get('/', (req, res) => {
+    res.status(200).json({ message: 'Welcome to LinkTrim URL Shortener API' });
+});
 
 module.exports = router;
