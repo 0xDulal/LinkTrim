@@ -1,9 +1,7 @@
-import nanoid from 'nanoid';
-
-const { nanoid } = require('nanoid');
 const Url = require('../models/Url');
 
 const createShortUrl = async (req, res) => {
+  const { nanoid } = await import('nanoid'); // <-- dynamic import
   const { originalUrl } = req.body;
   const shortId = nanoid(6);
 
