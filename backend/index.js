@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: ['https://link-trim-iota.vercel.app'],
+  origin: ['https://link-trim-iota.vercel.app'], // your frontend URL
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
 }));
@@ -21,5 +21,5 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use('/', urlRoutes);
 
-// Do NOT use app.listen() on Vercel
+// REMOVE app.listen for Vercel
 module.exports = app;
