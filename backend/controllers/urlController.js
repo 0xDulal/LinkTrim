@@ -7,7 +7,7 @@ const createShortUrl = async (req, res) => {
 
   try {
     const newUrl = await Url.create({ shortId, originalUrl });
-    res.status(201).json({ shortUrl: `${process.env.BASE_URL}:${process.env.PORT}/${shortId}` });
+    res.status(201).json({ shortUrl: `${process.env.BASE_URL}/${shortId}` });
   } catch (err) {
     res.status(500).json({ error: 'Something went wrong' });
   }
